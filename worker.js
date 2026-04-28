@@ -10,16 +10,16 @@ export default {
     if (request.method !== 'POST') return new Response('Method not allowed', { status: 405, headers: CORS })
 
     try {
-      const { amount, nome, telefone, cpf } = await request.json()
+      const { amount } = await request.json()
 
       const identifier = 'doacao_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9)
 
-      let phone = (telefone || '11999999999').replace(/\D/g, '')
-      if (!phone.startsWith('55')) phone = '55' + phone
-      phone = '+' + phone
-
-      const client = { name: nome || 'Doador', email: 'deoracoes@irmaos.com.br', phone }
-      if (cpf) client.document = cpf.replace(/\D/g, '')
+      const client = {
+        name: 'Irmãos de oração',
+        email: 'deoracoes@irmaos.com.br',
+        phone: '+5511991596266',
+        document: '24121260899'
+      }
 
       const payload = {
         identifier,
