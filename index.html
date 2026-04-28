@@ -952,12 +952,20 @@
       });
 
       const data = await resp.json();
+      console.log('Amplo Pay response:', JSON.stringify(data));
 
       if (!resp.ok) throw new Error(data.message || 'Erro na API');
 
-      // Preenche tela PIX — ajuste os campos conforme retorno real da Amplo Pay
-      const qrCode  = data.qrCode  || data.qr_code  || data.pixCode  || '';
-      const qrImage = data.qrCodeImage || data.qr_code_image || '';
+      const qrCode  = data.pixCopiaECola || data.pix_copia_e_cola
+                   || data.qrCode        || data.qr_code
+                   || data.pixCode       || data.emv
+                   || (data.pix && data.pix.qrcode)
+                   || (data.data && (data.data.pixCopiaECola || data.data.qrCode || data.data.qr_code))
+                   || '';
+      const qrImage = data.qrCodeImage   || data.qr_code_image
+                   || data.qrCodeBase64  || data.qr_code_base64
+                   || (data.data && (data.data.qrCodeImage || data.data.qrCodeBase64))
+                   || '';
 
       document.getElementById('pixValorLabel').textContent = 'Doação de ' + selectedValue;
       document.getElementById('pixCodeBox').textContent = qrCode;
