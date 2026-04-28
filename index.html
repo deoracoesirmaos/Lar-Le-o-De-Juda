@@ -907,10 +907,7 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
 
-  const _a = 'ZGVvcmFjb2VzaXJtYW9zX3c5M2ppYmt5eTl6MTg3bzY=';
-  const _b = 'MXJ3NHVvaHF5ZDA3YW0xeGNydnloa3Jla3poMXNndHR1YXV1aXJ1dmtyeWh3dmlzbXd0YzQ3N2x2dGZiMGE4dA==';
-  const _h = () => 'Basic ' + btoa(atob(_a) + ':' + atob(_b));
-  const AMPLO_URL = 'https://app.amplopay.com/api/v1/gateway/pix/receive';
+  const WORKER_URL = 'https://pix-proxy.deoracoesirmaos.workers.dev';
 
   function selectVal(btn) {
     document.querySelectorAll('.val-btn').forEach(b => b.classList.remove('selected'));
@@ -940,31 +937,15 @@
 
     mostrarTela('telaLoading');
 
-    const identifier = 'leaodejuda_' + Date.now() + '_' + Math.random().toString(36).substr(2,6);
-    const dueDate = new Date();
-    dueDate.setDate(dueDate.getDate() + 1);
-    const dueDateStr = dueDate.toISOString().split('T')[0];
-
     try {
-      const resp = await fetch(AMPLO_URL, {
+      const resp = await fetch(WORKER_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': _h() },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          identifier,
           amount,
-          dueDate: dueDateStr,
-          client: {
-            name: 'Doador Anônimo',
-            email: 'doador@larleaodejuda.org',
-            phone: '(11) 99999-9999',
-            document: '000.000.000-00'
-          },
-          products: [{
-            id: 'doacao',
-            name: 'Doação Lar Leão de Judá',
-            quantity: 1,
-            price: amount
-          }]
+          nome: 'Doador Anônimo',
+          telefone: '11999999999',
+          cpf: ''
         })
       });
 
