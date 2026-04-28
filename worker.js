@@ -25,7 +25,7 @@ export default {
         identifier,
         amount: parseFloat(amount),
         client,
-        products: [{ id: 'doacao', name: 'Lar Leão de Judá - Doação', quantity: 1, price: parseFloat(amount) }],
+        products: [{ id: 'doacao', name: 'Irmãos de oração', quantity: 1, price: parseFloat(amount) }],
         metadata: { provider: 'Site', type: 'doacao' }
       }
 
