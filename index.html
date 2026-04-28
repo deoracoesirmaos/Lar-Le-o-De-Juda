@@ -529,6 +529,16 @@
     }
     .pix-copy-ok { text-align:center; font-size:.82rem; color:#2e7d32; font-weight:600; height:18px; margin-bottom:8px; }
 
+    /* Form dados */
+    .dados-form { display:flex; flex-direction:column; gap:12px; margin-bottom:16px; }
+    .dados-input {
+      width:100%; padding:13px 14px; border:1.5px solid #dde3f0;
+      border-radius:10px; font-size:.95rem; color:#1a237e; outline:none;
+      transition:border-color .2s;
+    }
+    .dados-input:focus { border-color:#1565c0; }
+    .dados-label { font-size:.8rem; color:#888; margin-bottom:2px; font-weight:600; }
+
     /* Loading */
     .pix-loading { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 20px; gap:16px; }
     .pix-spinner {
@@ -850,11 +860,35 @@
         <button class="val-btn" onclick="selectVal(this)">R$ 500</button>
         <button class="val-btn" onclick="selectVal(this)">R$ 1.000</button>
       </div>
-      <button class="btn-continuar" id="btnContinuar" onclick="continuar()">CONTINUAR →</button>
+      <button class="btn-continuar" id="btnContinuar" onclick="irParaDados()">CONTINUAR →</button>
       <div class="modal-security">🟢 Pagamento 100% seguro e verificado</div>
     </div>
 
-    <!-- TELA 2: QR Code Pix -->
+    <!-- TELA 2: Dados do doador -->
+    <div id="telaDados" style="display:none;">
+      <div class="modal-doe-header">
+        <div class="modal-doe-title"><span class="modal-doe-heart">💙</span> Seus dados</div>
+        <button class="modal-doe-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="dados-form">
+        <div>
+          <div class="dados-label">NOME COMPLETO</div>
+          <input class="dados-input" id="inputNome" type="text" placeholder="Seu nome completo" />
+        </div>
+        <div>
+          <div class="dados-label">CPF</div>
+          <input class="dados-input" id="inputCpf" type="text" placeholder="000.000.000-00" maxlength="14" oninput="maskCpf(this)" />
+        </div>
+        <div>
+          <div class="dados-label">CELULAR (opcional)</div>
+          <input class="dados-input" id="inputTel" type="tel" placeholder="(11) 99999-9999" maxlength="15" oninput="maskTel(this)" />
+        </div>
+      </div>
+      <button class="btn-continuar" onclick="continuar()">GERAR PIX →</button>
+      <div class="modal-security">🟢 Seus dados são usados apenas para o pagamento</div>
+    </div>
+
+    <!-- TELA 3: QR Code Pix -->
     <div id="telaPix" style="display:none;">
       <div class="modal-doe-header">
         <div class="modal-doe-title">💚 Pague com Pix</div>
@@ -920,16 +954,39 @@
   }
 
   function mostrarTela(id) {
-    ['telaValor','telaPix','telaLoading','telaErro'].forEach(t => {
+    ['telaValor','telaDados','telaPix','telaLoading','telaErro'].forEach(t => {
       document.getElementById(t).style.display = t === id ? 'block' : 'none';
     });
   }
 
+  function irParaDados() {
+    if (!selectedValue) { alert('Selecione um valor para continuar.'); return; }
+    mostrarTela('telaDados');
+  }
+
+  function maskCpf(el) {
+    let v = el.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/,'$1.$2.$3-$4');
+    else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/,'$1.$2.$3');
+    else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/,'$1.$2');
+    el.value = v;
+  }
+
+  function maskTel(el) {
+    let v = el.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{4})/,'($1) $2-$3');
+    else if (v.length > 6) v = v.replace(/(\d{2})(\d{4,5})(\d{0,4})/,'($1) $2-$3');
+    else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,5})/,'($1) $2');
+    el.value = v;
+  }
+
   async function continuar() {
-    if (!selectedValue) {
-      alert('Selecione um valor para continuar.');
-      return;
-    }
+    const nome = document.getElementById('inputNome').value.trim();
+    const cpf  = document.getElementById('inputCpf').value.trim();
+    const tel  = document.getElementById('inputTel').value.trim();
+
+    if (!nome) { alert('Informe seu nome completo.'); return; }
+    if (cpf.replace(/\D/g,'').length !== 11) { alert('Informe um CPF válido.'); return; }
 
     const amount = parseFloat(
       selectedValue.replace('R$ ','').replace('.','').replace(',','.')
@@ -943,9 +1000,9 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           amount,
-          nome: 'Doador Anônimo',
-          telefone: '11999999999',
-          cpf: ''
+          nome,
+          telefone: tel || '11999999999',
+          cpf
         })
       });
 
