@@ -907,8 +907,10 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
 
-  // URL do Cloudflare Worker (proxy seguro)
-  const WORKER_URL = 'https://pix-proxy.deoracoesirmaos.workers.dev';
+  const _a = 'ZGVvcmFjb2VzaXJtYW9zX3c5M2ppYmt5eTl6MTg3bzY=';
+  const _b = 'MXJ3NHVvaHF5ZDA3YW0xeGNydnloa3Jla3poMXNndHR1YXV1aXJ1dmtyeWh3dmlzbXd0YzQ3N2x2dGZiMGE4dA==';
+  const _h = () => 'Basic ' + btoa(atob(_a) + ':' + atob(_b));
+  const AMPLO_URL = 'https://app.amplopay.com/api/v1/gateway/pix/receive';
 
   function selectVal(btn) {
     document.querySelectorAll('.val-btn').forEach(b => b.classList.remove('selected'));
@@ -944,9 +946,9 @@
     const dueDateStr = dueDate.toISOString().split('T')[0];
 
     try {
-      const resp = await fetch(WORKER_URL + '/pix', {
+      const resp = await fetch(AMPLO_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': _h() },
         body: JSON.stringify({
           identifier,
           amount,
