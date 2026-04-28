@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leão de Judá | Transformando Vidas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #fff; }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+      color: #fff;
+      padding: 16px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+    }
+    .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+.logo-text h1 { font-size: 1.25rem; font-weight: 800; letter-spacing: .5px; }
+    .logo-text span { font-size: .75rem; opacity: .85; }
+    .header-cta { background: #e53935; color: #fff; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 700; font-size: .9rem; cursor: pointer; transition: background .2s; white-space: nowrap; }
+    .header-cta:hover { background: #c62828; }
+
+    /* ── HERO ── */
+    .hero2-section { background: #f5f0e8; padding: 48px 20px; }
+    .hero2-inner {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border: 1px solid #e0d8c8;
+      border-radius: 16px; padding: 32px 28px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      text-align: center;
+    }
+    .hero2-title {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 900; color: #0d47a1;
+      line-height: 1.25; margin-bottom: 12px;
+    }
+    .hero2-red { color: #c62828; }
+    .hero2-sub { font-size: .95rem; color: #555; margin-bottom: 16px; }
+    .hero2-badge {
+      display: inline-block;
+      border: 1px solid #c8d6f0; border-radius: 50px;
+      padding: 7px 18px; font-size: .82rem; color: #1565c0;
+      font-weight: 500; margin-bottom: 20px;
+    }
+    .hero2-video-wrap { border-radius: 12px; overflow: hidden; }
+    .hero2-video-wrap video { width: 100%; display: block; max-height: 420px; background: #000; }
+    .btn-primary {
+      display: inline-block;
+      background: #e53935;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: .5px;
+      border: none;
+      cursor: pointer;
+      transition: transform .15s, background .2s;
+      box-shadow: 0 4px 16px rgba(229,57,53,.5);
+    }
+    .btn-primary:hover { background: #c62828; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      background: #fff;
+      color: #1565c0;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-secondary:hover { background: #e3f2fd; }
+
+    /* ── URGÊNCIA BARRA ── */
+    .urgency-bar {
+      background: #e53935;
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+
+    /* ── PROGRESSO ── */
+    .prog2-section { background: #f5f0e8; padding: 48px 20px; }
+    .prog2-inner { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+    .prog2-bar-card {
+      background: #e8eef8; border-radius: 14px; padding: 20px 22px;
+    }
+    .prog2-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .prog2-label { font-size: .8rem; font-weight: 700; color: #e53935; letter-spacing: .5px; }
+    .prog2-percent-badge {
+      background: #0d2b6e; color: #fff;
+      font-size: .82rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px;
+    }
+    .prog2-bar-wrap { background: #c8d6f0; border-radius: 99px; height: 10px; overflow: hidden; margin-bottom: 18px; }
+    .prog2-bar-fill { background: #0d2b6e; height: 100%; border-radius: 99px; width: 0; transition: width 1s; }
+    .prog2-stats { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .prog2-stat { text-align: center; }
+    .prog2-stat strong { display: block; font-size: 1.3rem; font-weight: 800; color: #0d2b6e; }
+    .prog2-stat span { font-size: .78rem; color: #666; }
+    .prog2-divider { width: 1px; height: 36px; background: #c0cce8; }
+
+    .prog2-countdown-card {
+      background: #fff8ee; border: 2px solid #f5a623;
+      border-radius: 14px; padding: 18px 22px; text-align: center;
+    }
+    .prog2-countdown-text { font-size: .88rem; color: #555; margin-bottom: 14px; }
+    .prog2-clock { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .prog2-clock-unit {
+      background: #fff; border: 1px solid #e8e0d0;
+      border-radius: 10px; padding: 10px 18px; min-width: 72px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .prog2-clock-unit span { font-size: 1.6rem; font-weight: 800; color: #0d2b6e; line-height: 1; }
+    .prog2-clock-unit small { font-size: .65rem; font-weight: 700; color: #888; letter-spacing: .5px; margin-top: 4px; }
+
+    /* ── NECESSIDADES ── */
+    .needs-section { padding: 48px 20px; max-width: 760px; margin: 0 auto; }
+    .needs-section h3 { font-size: 1.5rem; font-weight: 800; color: #0d47a1; text-align: center; margin-bottom: 8px; }
+    .needs-section .sub { text-align: center; color: #555; margin-bottom: 28px; font-size: .95rem; }
+    .needs-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .needs-list li {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #f0f4ff; border-left: 4px solid #1565c0;
+      padding: 14px 18px; border-radius: 8px; font-size: .95rem;
+    }
+    .needs-list li .item-name { font-weight: 600; color: #1a237e; }
+    .needs-list li .item-value { font-weight: 800; color: #e53935; font-size: 1rem; }
+    .needs-total {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #1565c0; color: #fff; padding: 16px 18px; border-radius: 10px;
+      font-weight: 800; font-size: 1.05rem;
+    }
+    .needs-total .total-value { font-size: 1.3rem; color: #ffd700; }
+
+    /* ── MISSÃO ── */
+    .mission-section-new {
+      background: #fff;
+      padding: 48px 20px;
+      border-top: 1px solid #e8eaf6;
+    }
+    .mission-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e0e7ff;
+      border-radius: 16px;
+      padding: 28px 28px 32px;
+      box-shadow: 0 2px 16px rgba(21,101,192,.08);
+    }
+    .mission-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0d47a1;
+      margin-bottom: 18px;
+    }
+    .mission-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .mission-img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+    .mission-img-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 20px 14px 10px;
+    }
+    .mission-text {
+      font-size: .97rem;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .btn-mission-yellow {
+      display: block;
+      width: 100%;
+      background: #f5a623;
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: .5px;
+      margin-top: 8px;
+      transition: background .2s;
+    }
+    .btn-mission-yellow:hover { background: #e6951a; }
+
+    /* ── CONTAS ── */
+    .contas-section { background: #f5f0e8; padding: 48px 20px; }
+    .contas-inner {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border: 1px solid #e0d8c8;
+      border-radius: 16px; padding: 28px 28px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .contas-title { font-size: 1.3rem; font-weight: 800; color: #1a237e; margin-bottom: 18px; }
+    .contas-img-wrap { border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+    .contas-img { width: 100%; max-height: 340px; object-fit: cover; display: block; }
+    .contas-text { font-size: .95rem; color: #444; line-height: 1.7; margin-bottom: 16px; }
+    .contas-text strong { color: #1565c0; }
+    .contas-alert {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: #fffbf0; border: 1px solid #f5a623;
+      border-radius: 10px; padding: 14px 16px; margin-bottom: 20px;
+    }
+    .contas-alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .contas-alert p { font-size: .88rem; color: #555; line-height: 1.6; margin: 0; }
+    .contas-alert strong { color: #333; }
+
+    /* ── PARA ONDE VAI ── */
+    .destino-section { background: #f5f0e8; padding: 48px 20px; }
+    .destino-inner {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border: 1px solid #e0d8c8;
+      border-radius: 16px; padding: 28px 28px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .destino-title { font-size: 1.4rem; font-weight: 800; color: #1a237e; margin-bottom: 20px; }
+    .destino-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .destino-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; border-radius: 10px; font-size: .9rem;
+    }
+    .destino-item p { margin: 0; color: #444; line-height: 1.5; }
+    .destino-item.red { background: #fff0f0; border: 1px solid #ffd0d0; }
+    .destino-item.green { background: #f0faf4; border: 1px solid #b2dfdb; }
+    .destino-item.full { grid-column: 1 / -1; }
+    .destino-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 900; flex-shrink: 0;
+      background: #e53935; color: #fff;
+    }
+    .destino-icon.green-icon { background: #2e7d32; }
+
+    @media (max-width: 520px) {
+      .destino-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── QUEM SOMOS ── */
+    .quem-section { background: #f5f0e8; padding: 48px 20px; }
+    .quem-inner {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border: 1px solid #e0d8c8;
+      border-radius: 16px; padding: 28px 28px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .quem-title { font-size: 1.4rem; font-weight: 800; color: #1a237e; margin-bottom: 14px; }
+    .quem-text { font-size: .95rem; color: #444; line-height: 1.7; margin-bottom: 22px; }
+    .quem-text strong { color: #1565c0; }
+
+    .carousel { overflow: hidden; border-radius: 12px; margin-bottom: 14px; }
+    .carousel-track {
+      display: flex;
+      transition: transform .4s ease;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+    }
+    .carousel-slide img {
+      width: 100%; height: 280px;
+      object-fit: cover; display: block;
+    }
+    .slide-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+      padding: 28px 16px 14px;
+      color: #fff;
+    }
+    .slide-tag {
+      background: #f5a623; color: #fff;
+      font-size: .7rem; font-weight: 800;
+      padding: 3px 8px; border-radius: 4px;
+      letter-spacing: .5px; display: inline-block;
+      margin-bottom: 6px;
+    }
+    .slide-label { font-size: 1.1rem; font-weight: 700; }
+
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #d0d0d0; border: none; cursor: pointer;
+      padding: 0; transition: background .2s;
+    }
+    .dot.active { background: #1565c0; width: 28px; border-radius: 5px; }
+
+    /* ── CARDS ESTRUTURA ── */
+    .structure-section { padding: 52px 20px; background: #f8faff; }
+    .structure-section h3 { text-align: center; font-size: 1.5rem; font-weight: 800; color: #0d47a1; margin-bottom: 28px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 860px; margin: 0 auto; }
+    .struct-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(21,101,192,.1);
+      transition: transform .2s;
+    }
+    .struct-card:hover { transform: translateY(-4px); }
+    .struct-card-img {
+      height: 140px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+    .struct-card-img.blue { background: linear-gradient(135deg, #bbdefb, #e3f2fd); }
+    .struct-card-img.green { background: linear-gradient(135deg, #c8e6c9, #e8f5e9); }
+    .struct-card-img.yellow { background: linear-gradient(135deg, #fff9c4, #fffde7); }
+    .struct-card-img.purple { background: linear-gradient(135deg, #e1bee7, #f3e5f5); }
+    .struct-card h4 { font-size: .95rem; font-weight: 700; padding: 14px 16px 4px; color: #0d47a1; }
+    .struct-card p { font-size: .82rem; color: #666; padding: 0 16px 16px; line-height: 1.5; }
+
+    /* ── PIX SECTION ── */
+    .pix-section { background: #e8f5e9; padding: 52px 20px; text-align: center; }
+    .pix-card {
+      background: #fff; border-radius: 16px; padding: 36px 28px;
+      max-width: 520px; margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+    .pix-card h3 { font-size: 1.4rem; font-weight: 800; color: #0d47a1; margin-bottom: 8px; }
+    .pix-card p { color: #555; font-size: .9rem; margin-bottom: 24px; }
+    .pix-key-box {
+      background: #f0f4ff; border: 2px dashed #1565c0;
+      border-radius: 10px; padding: 14px 20px;
+      font-size: 1rem; font-weight: 700; color: #1565c0;
+      letter-spacing: 1px; margin-bottom: 16px;
+      word-break: break-all;
+    }
+    .btn-pix {
+      background: #2e7d32;
+      color: #fff; border: none; padding: 14px 32px;
+      border-radius: 50px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; width: 100%; margin-bottom: 12px;
+      transition: background .2s;
+    }
+    .btn-pix:hover { background: #1b5e20; }
+    .pix-cnpj { font-size: .78rem; color: #888; }
+
+    /* ── FAQ ── */
+    .faq2-section { background: #f5f0e8; padding: 48px 20px; }
+    .faq2-inner {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border: 1px solid #e0d8c8;
+      border-radius: 16px; padding: 28px 28px 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .faq2-title { font-size: 1.4rem; font-weight: 800; color: #1a237e; margin-bottom: 20px; }
+    .faq2-item { border-bottom: 1px solid #eef0f8; }
+    .faq2-btn {
+      width: 100%; background: none; border: none;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 0; cursor: pointer; text-align: left;
+      font-size: .95rem; font-weight: 500; color: #1a237e;
+      gap: 12px;
+    }
+    .faq2-btn:hover { color: #1565c0; }
+    .faq2-chevron {
+      width: 20px; height: 20px; flex-shrink: 0;
+      color: #1565c0; transition: transform .25s;
+    }
+    .faq2-item.open .faq2-chevron { transform: rotate(180deg); }
+    .faq2-answer {
+      font-size: .9rem; color: #555; line-height: 1.65;
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      padding: 0;
+    }
+    .faq2-item.open .faq2-answer { max-height: 200px; padding-bottom: 16px; }
+
+    /* ── LOCALIZAÇÃO ── */
+    .mapa-section { background: #f5f0e8; padding: 48px 20px; }
+    .mapa-inner {
+      max-width: 720px; margin: 0 auto;
+      background: #fff; border: 1px solid #e0d8c8;
+      border-radius: 16px; padding: 28px 28px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .mapa-title { font-size: 1.4rem; font-weight: 800; color: #1a237e; margin-bottom: 6px; }
+    .mapa-sub { font-size: .9rem; color: #666; margin-bottom: 18px; }
+    .mapa-embed { border-radius: 12px; overflow: hidden; margin-bottom: 16px; border: 1px solid #e0e7ff; }
+    .mapa-address {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: #f8faff; border: 1px solid #e0e7ff;
+      border-radius: 10px; padding: 14px 16px;
+      margin-bottom: 20px; font-size: .9rem; color: #444; line-height: 1.6;
+    }
+    .mapa-pin { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .mapa-address strong { color: #1a237e; }
+    .mapa-address span { color: #666; font-size: .85rem; }
+    .btn-maps {
+      display: block; width: 100%; text-align: center;
+      background: #0d2b6e; color: #fff;
+      padding: 16px; border-radius: 10px;
+      font-size: .95rem; font-weight: 700;
+      text-decoration: none; letter-spacing: .4px;
+      transition: background .2s;
+    }
+    .btn-maps:hover { background: #1565c0; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+      color: #fff; text-align: center; padding: 60px 20px;
+    }
+    .cta-final h3 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 900; margin-bottom: 12px; }
+    .cta-final p { font-size: 1rem; opacity: .9; max-width: 500px; margin: 0 auto 28px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1b3e;
+      color: #aab; padding: 40px 20px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 800px; margin: 0 auto; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .footer-cnpj { font-size: .8rem; margin-bottom: 16px; }
+    .footer-contact { font-size: .85rem; margin-bottom: 20px; line-height: 1.8; }
+    .footer-contact a { color: #90caf9; text-decoration: none; }
+    .footer-social { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+    .social-btn {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: 8px 16px; border-radius: 20px;
+      font-size: .82rem; cursor: pointer; text-decoration: none;
+      transition: background .2s;
+    }
+    .social-btn:hover { background: rgba(255,255,255,.2); }
+    .footer-links { font-size: .78rem; margin-bottom: 16px; }
+    .footer-links a { color: #90caf9; text-decoration: none; margin: 0 8px; }
+    .footer-copy { font-size: .78rem; opacity: .6; }
+
+    /* ── MODAL DOAÇÃO ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.55); z-index: 999;
+      align-items: flex-end; justify-content: center; padding: 0;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-doe {
+      background: #fff; border-radius: 20px 20px 0 0;
+      padding: 24px 20px 32px; width: 100%; max-width: 520px;
+      box-shadow: 0 -4px 32px rgba(0,0,0,.2);
+      animation: slideUp .25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal-doe-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 18px;
+    }
+    .modal-doe-title { font-size: 1rem; font-weight: 700; color: #1a237e; display: flex; align-items: center; gap: 8px; }
+    .modal-doe-heart { font-size: 1.2rem; }
+    .modal-doe-close {
+      background: #f0f0f0; border: none; border-radius: 50%;
+      width: 30px; height: 30px; font-size: .9rem; cursor: pointer;
+      color: #555; display: flex; align-items: center; justify-content: center;
+    }
+    .modal-doe-tab {
+      display: flex; background: #f0f0f0; border-radius: 10px;
+      padding: 4px; margin-bottom: 20px;
+    }
+    .modal-tab {
+      flex: 1; padding: 9px; border: none; border-radius: 8px;
+      font-size: .88rem; font-weight: 600; cursor: pointer; transition: all .2s;
+    }
+    .modal-tab.active { background: #0d2b6e; color: #fff; }
+    .modal-tab.inactive { background: transparent; color: #888; }
+    .modal-values {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-bottom: 20px;
+    }
+    .val-btn {
+      position: relative; padding: 13px 8px;
+      border: 1.5px solid #dde3f0; border-radius: 10px;
+      background: #fff; font-size: .92rem; font-weight: 600;
+      color: #1a237e; cursor: pointer; transition: all .15s;
+    }
+    .val-btn:hover { border-color: #1565c0; background: #f0f4ff; }
+    .val-btn.selected { border-color: #0d2b6e; background: #0d2b6e; color: #fff; }
+    .val-btn.selected .popular-badge { background: #fff; color: #0d2b6e; }
+    .popular-badge {
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: #f5a623; color: #fff; font-size: .6rem; font-weight: 800;
+      padding: 2px 7px; border-radius: 10px; letter-spacing: .3px; white-space: nowrap;
+    }
+    .btn-continuar {
+      display: block; width: 100%; background: #f5a623; color: #fff;
+      border: none; padding: 16px; border-radius: 12px;
+      font-size: 1rem; font-weight: 800; cursor: pointer;
+      letter-spacing: .5px; margin-bottom: 10px; transition: background .2s;
+    }
+    .btn-continuar:hover { background: #e6951a; }
+    .btn-continuar:disabled { background: #ccc; cursor: not-allowed; }
+    .modal-security { text-align: center; font-size: .8rem; color: #555; }
+
+    /* Pix step */
+    .pix-step-valor { text-align:center; font-size:1.1rem; font-weight:800; color:#0d2b6e; margin-bottom:14px; }
+    .pix-qr-wrap { display:flex; justify-content:center; margin-bottom:14px; }
+    .pix-qr-wrap img { width:200px; height:200px; border:2px solid #e0e7ff; border-radius:12px; }
+    .pix-instrucao { text-align:center; font-size:.82rem; color:#666; margin-bottom:8px; }
+    .pix-code-box {
+      background:#f0f4ff; border:1.5px dashed #1565c0; border-radius:10px;
+      padding:12px 14px; font-size:.75rem; color:#1565c0; font-weight:600;
+      word-break:break-all; margin-bottom:6px; cursor:pointer; text-align:center;
+    }
+    .pix-copy-ok { text-align:center; font-size:.82rem; color:#2e7d32; font-weight:600; height:18px; margin-bottom:8px; }
+
+    /* Loading */
+    .pix-loading { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 20px; gap:16px; }
+    .pix-spinner {
+      width:44px; height:44px; border:4px solid #e0e7ff;
+      border-top-color:#1565c0; border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .pix-loading p { color:#555; font-size:.95rem; }
+
+    @media (max-width: 480px) {
+      .header-inner { justify-content: center; }
+      .stats-row { gap: 20px; }
+      .mission-card { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+<div class="logo-text">
+        <h1>Lar Leão de Judá</h1>
+        <span>Transformando Vidas desde 2012</span>
+      </div>
+    </div>
+    <button class="header-cta" onclick="openModal()">DOAR AGORA</button>
+  </div>
+</header>
+
+<!-- URGÊNCIA -->
+<div class="urgency-bar">
+  ⚠️ PRAZO: Precisamos completar a meta até o final de maio — cada minuto conta!
+</div>
+
+<!-- HERO -->
+<section class="hero2-section">
+  <div class="hero2-inner">
+    <h2 class="hero2-title">
+      Não permita que uma <span class="hero2-red">dívida de R$ 50 mil<br/>destrua o nosso lar.</span>
+    </h2>
+    <p class="hero2-sub">Doe e garanta que nossos moradores continuem recebendo todo o carinho que merecem.</p>
+    <div class="hero2-badge">✅ Instituição verificada · Pix na conta oficial</div>
+    <div class="hero2-video-wrap">
+      <video id="heroVideo" controls playsinline poster="">
+        <source src="videos/leao.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESSO -->
+<section class="prog2-section">
+  <div class="prog2-inner">
+
+    <!-- Barra de progresso -->
+    <div class="prog2-bar-card">
+      <div class="prog2-bar-header">
+        <span class="prog2-label">● ABRIL 2026</span>
+        <span class="prog2-percent-badge">41%</span>
+      </div>
+      <div class="prog2-bar-wrap">
+        <div class="prog2-bar-fill"></div>
+      </div>
+      <div class="prog2-stats">
+        <div class="prog2-stat">
+          <strong>R$ 24.155</strong>
+          <span>arrecadados</span>
+        </div>
+        <div class="prog2-divider"></div>
+        <div class="prog2-stat">
+          <strong>692</strong>
+          <span>doadores</span>
+        </div>
+        <div class="prog2-divider"></div>
+        <div class="prog2-stat">
+          <strong>R$ 60.250</strong>
+          <span>meta total</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="prog2-countdown-card">
+      <p class="prog2-countdown-text">Tempo máximo para recebermos as doações e evitarmos o despejo do lar.</p>
+      <div class="prog2-clock">
+        <div class="prog2-clock-unit"><span id="cd-days">3</span><small>DIAS</small></div>
+        <div class="prog2-clock-unit"><span id="cd-hours">08</span><small>HORAS</small></div>
+        <div class="prog2-clock-unit"><span id="cd-mins">02</span><small>MIN</small></div>
+        <div class="prog2-clock-unit"><span id="cd-secs">42</span><small>SEG</small></div>
+      </div>
+    </div>
+
+    <button class="btn-mission-yellow" onclick="openModal()">QUERO AJUDAR AGORA</button>
+  </div>
+</section>
+
+
+<!-- MISSÃO -->
+<section class="mission-section-new">
+  <div class="mission-inner">
+    <h3 class="mission-title">Nossa Missão: Amor em Ação</h3>
+    <div class="mission-img-wrap">
+      <img src="imagens/idoso 1.jpeg" alt="Idoso sendo cuidado no Lar Leão de Judá" class="mission-img" />
+      <div class="mission-img-caption">Transformando vidas desde 2012</div>
+    </div>
+    <p class="mission-text">
+      Muitas pessoas chegam até o <strong>Leão de Judá</strong> sem esperança e sem ter a quem recorrer.
+      Nosso objetivo não é apenas oferecer um teto ou uma refeição, mas restaurar a dignidade e lembrar
+      a cada acolhido de que eles são amados e importantes.
+    </p>
+    <p class="mission-text">
+      Com o seu apoio, conseguimos manter nossas portas abertas todos os dias, transformando histórias
+      de dor em novos recomeços.
+    </p>
+    <button class="btn-mission-yellow" onclick="openModal()">FAZER PARTE DESSA MISSÃO</button>
+  </div>
+</section>
+
+<!-- CONTAS -->
+<section class="contas-section">
+  <div class="contas-inner">
+    <h3 class="contas-title">As contas chegam sem perguntar se a gente tem</h3>
+    <div class="contas-img-wrap">
+      <img src="imagens/idoso 2.jpeg" alt="Idosos sendo cuidados no Lar Leão de Judá" class="contas-img" />
+    </div>
+    <p class="contas-text">
+      As pessoas acham que um lar funciona só com boa vontade. Mas a verdade é que todos os dias nossa equipe luta para garantir
+      <strong>comida, fraldas geriátricas, remédios, luz e água</strong>. Nossos idosos não são independentes; eles precisam de ajuda para comer, levantar e tomar banho.
+    </p>
+    <div class="contas-alert">
+      <span class="contas-alert-icon">⚠️</span>
+      <p><strong>Modo de sobrevivência:</strong> Acumulamos uma dívida de quase R$ 60.000 e nossos estoques estão no limite. Se não pagarmos essas contas, o lar pode fechar e eles perderão a verdadeira família que construíram aqui.</p>
+    </div>
+    <button class="btn-mission-yellow" onclick="openModal()">AJUDAR A MANTER O LAR ABERTO</button>
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section class="quem-section">
+  <div class="quem-inner">
+    <h3 class="quem-title">Quem Somos</h3>
+    <p class="quem-text">
+      A <strong>Instituição Leão de Judá</strong> trabalha incansavelmente para acolher e transformar a vida de dezenas de pessoas que enfrentam o abandono e a vulnerabilidade. Oferecemos alimento, cuidados médicos, suporte psicológico e, acima de tudo, o amor de uma família.
+    </p>
+
+    <!-- Carrossel -->
+    <div class="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <img src="imagens/refeitorio 1.jpg" alt="Refeitório Principal" />
+          <div class="slide-caption">
+            <span class="slide-tag">ESTRUTURA</span>
+            <div class="slide-label">Refeitório Principal</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="imagens/refeitorio 2.jpg" alt="Casa de Acolhimento" />
+          <div class="slide-caption">
+            <span class="slide-tag">ACOLHIMENTO</span>
+            <div class="slide-label">Casa de Acolhimento</div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="imagens/refeitorio 3.jpg" alt="Apoio e Integração" />
+          <div class="slide-caption">
+            <span class="slide-tag">ATIVIDADES</span>
+            <div class="slide-label">Apoio e Integração</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="carousel-dots" id="carouselDots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
+    </div>
+
+    <button class="btn-mission-yellow" onclick="openModal()">QUERO AJUDAR</button>
+  </div>
+</section>
+
+<!-- PARA ONDE VAI -->
+<section class="destino-section">
+  <div class="destino-inner">
+    <h3 class="destino-title">Para onde vai a sua doação?</h3>
+    <div class="destino-grid">
+      <div class="destino-item red">
+        <span class="destino-icon">✖</span>
+        <p><strong>Sem você</strong>, falta comida nutritiva no prato todos os dias.</p>
+      </div>
+      <div class="destino-item red">
+        <span class="destino-icon">✖</span>
+        <p><strong>Sem você</strong>, faltam fraldas geriátricas e higiene básica.</p>
+      </div>
+      <div class="destino-item red">
+        <span class="destino-icon">✖</span>
+        <p><strong>Sem você</strong>, faltam remédios essenciais para aliviar as dores.</p>
+      </div>
+      <div class="destino-item red">
+        <span class="destino-icon">✖</span>
+        <p><strong>Sem você</strong>, não conseguimos manter nossos cuidadores 24h.</p>
+      </div>
+    </div>
+    <div class="destino-item green full">
+      <span class="destino-icon green-icon">✔</span>
+      <p><strong>Com você</strong>, garantimos saúde, dignidade e um lar com amor!</p>
+    </div>
+    <button class="btn-mission-yellow" style="margin-top:16px;" onclick="openModal()">QUERO AJUDAR</button>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq2-section">
+  <div class="faq2-inner">
+    <h3 class="faq2-title">Perguntas Frequentes</h3>
+
+    <div class="faq2-item">
+      <button class="faq2-btn" onclick="toggleFaq(this)">
+        <span>As doações são seguras?</span>
+        <svg class="faq2-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq2-answer">Sim! Todas as doações caem diretamente na conta jurídica oficial do Lar Leão de Judá, registrada com CNPJ 19.490.347/0001-98. Somos uma instituição legalmente constituída e auditável.</div>
+    </div>
+
+    <div class="faq2-item">
+      <button class="faq2-btn" onclick="toggleFaq(this)">
+        <span>Existe um valor mínimo para doar?</span>
+        <svg class="faq2-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq2-answer">Não! Toda ajuda é muito bem-vinda. Seja R$ 5 ou R$ 5.000, cada contribuição é transformadora e nos ajuda a manter o lar funcionando.</div>
+    </div>
+
+    <div class="faq2-item">
+      <button class="faq2-btn" onclick="toggleFaq(this)">
+        <span>Posso doar fraldas ou alimentos?</span>
+        <svg class="faq2-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq2-answer">Com certeza! Aceitamos fraldas geriátricas, alimentos não perecíveis, produtos de higiene e outros itens de necessidade. Entre em contato pelo WhatsApp para combinar a entrega.</div>
+    </div>
+
+    <div class="faq2-item">
+      <button class="faq2-btn" onclick="toggleFaq(this)">
+        <span>Como acompanho o trabalho de vocês?</span>
+        <svg class="faq2-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq2-answer">Postamos nossa rotina diariamente em nossas redes sociais (Facebook, Instagram e TikTok). Lá você acompanha de perto o impacto da sua doação na vida dos nossos residentes.</div>
+    </div>
+
+    <div class="faq2-item" style="border-bottom:none;">
+      <button class="faq2-btn" onclick="toggleFaq(this)">
+        <span>Posso visitar a instituição?</span>
+        <svg class="faq2-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq2-answer">Gostamos muito de receber visitas! Entre em contato pelo WhatsApp (11) 96448-2729 para agendar sua visita e conhecer pessoalmente o trabalho que fazemos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="mapa-section">
+  <div class="mapa-inner">
+    <h3 class="mapa-title">Nossa Localização</h3>
+    <p class="mapa-sub">Venha nos visitar, agende uma visita. Estamos em Várzea Paulista, SP.</p>
+    <div class="mapa-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.123!2d-47.0!3d-23.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf3b5e5e5e5e5e%3A0x0!2sAv.+Fern%C3%A3o+Dias+Paes+Leme%2C+723%2C+V%C3%A1rzea+Paulista+-+SP%2C+13220-001!5e1!3m2!1spt-BR!2sbr!4v1"
+        width="100%" height="300" style="border:0; display:block;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <div class="mapa-address">
+      <span class="mapa-pin">📍</span>
+      <div>
+        <strong>Av. Fernão Dias Paes Leme, 723 — Várzea Paulista</strong><br/>
+        <span>SP · CEP 13220-001 · Próximo ao centro</span>
+      </div>
+    </div>
+    <a
+      href="https://maps.app.goo.gl/zKMDvAbCsv2rmDUf7"
+      target="_blank"
+      class="btn-maps"
+    >📍 ABRIR NO GOOGLE MAPS</a>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h3>Você pode ser a resposta para uma oração hoje</h3>
+  <p>Sua doação mantém vidas com dignidade. Não espere — cada dia conta para quem depende do nosso lar.</p>
+  <button class="btn-secondary" onclick="openModal()">AJUDAR AGORA</button>
+</section>
+
+
+<!-- MODAL DOAÇÃO -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal-doe">
+
+    <!-- TELA 1: Seleção de valor -->
+    <div id="telaValor">
+      <div class="modal-doe-header">
+        <div class="modal-doe-title"><span class="modal-doe-heart">💙</span> Qual valor deseja doar?</div>
+        <button class="modal-doe-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-values">
+        <button class="val-btn" onclick="selectVal(this)">R$ 20</button>
+        <button class="val-btn popular" onclick="selectVal(this)">R$ 30<span class="popular-badge">POPULAR</span></button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 50</button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 100</button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 150</button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 200</button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 250</button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 500</button>
+        <button class="val-btn" onclick="selectVal(this)">R$ 1.000</button>
+      </div>
+      <button class="btn-continuar" id="btnContinuar" onclick="continuar()">CONTINUAR →</button>
+      <div class="modal-security">🟢 Pagamento 100% seguro e verificado</div>
+    </div>
+
+    <!-- TELA 2: QR Code Pix -->
+    <div id="telaPix" style="display:none;">
+      <div class="modal-doe-header">
+        <div class="modal-doe-title">💚 Pague com Pix</div>
+        <button class="modal-doe-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="pix-step-valor" id="pixValorLabel"></div>
+      <div class="pix-qr-wrap">
+        <img id="pixQrImg" src="" alt="QR Code Pix" />
+      </div>
+      <p class="pix-instrucao">Ou copie o código abaixo e cole no seu banco:</p>
+      <div class="pix-code-box" id="pixCodeBox"></div>
+      <div class="pix-copy-ok" id="pixCopyOk">✅ Código copiado!</div>
+      <button class="btn-continuar" onclick="copiarPix()">📋 COPIAR CÓDIGO PIX</button>
+      <div class="modal-security" style="margin-top:10px;">🟢 Pagamento 100% seguro · CNPJ 19.490.347/0001-98</div>
+    </div>
+
+    <!-- TELA 3: Loading -->
+    <div id="telaLoading" style="display:none;">
+      <div class="pix-loading">
+        <div class="pix-spinner"></div>
+        <p>Gerando seu Pix...</p>
+      </div>
+    </div>
+
+    <!-- TELA 4: Erro -->
+    <div id="telaErro" style="display:none;">
+      <div class="modal-doe-header">
+        <div class="modal-doe-title">❌ Ocorreu um erro</div>
+        <button class="modal-doe-close" onclick="closeModal()">✕</button>
+      </div>
+      <p style="text-align:center;color:#555;margin:20px 0;" id="erroMsg">Não foi possível gerar o Pix. Tente novamente.</p>
+      <button class="btn-continuar" onclick="voltarParaValor()">← TENTAR NOVAMENTE</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let selectedValue = null;
+
+  function openModal() {
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  // URL do Cloudflare Worker (proxy seguro)
+  const WORKER_URL = 'https://pix-proxy.deoracoesirmaos.workers.dev';
+
+  function selectVal(btn) {
+    document.querySelectorAll('.val-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedValue = btn.textContent.replace('POPULAR','').trim();
+  }
+
+  function voltarParaValor() {
+    mostrarTela('telaValor');
+  }
+
+  function mostrarTela(id) {
+    ['telaValor','telaPix','telaLoading','telaErro'].forEach(t => {
+      document.getElementById(t).style.display = t === id ? 'block' : 'none';
+    });
+  }
+
+  async function continuar() {
+    if (!selectedValue) {
+      alert('Selecione um valor para continuar.');
+      return;
+    }
+
+    const amount = parseFloat(
+      selectedValue.replace('R$ ','').replace('.','').replace(',','.')
+    );
+
+    mostrarTela('telaLoading');
+
+    const identifier = 'leaodejuda_' + Date.now() + '_' + Math.random().toString(36).substr(2,6);
+    const dueDate = new Date();
+    dueDate.setDate(dueDate.getDate() + 1);
+    const dueDateStr = dueDate.toISOString().split('T')[0];
+
+    try {
+      const resp = await fetch(WORKER_URL + '/pix', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          identifier,
+          amount,
+          dueDate: dueDateStr,
+          client: {
+            name: 'Doador Anônimo',
+            email: 'doador@larleaodejuda.org',
+            phone: '(11) 99999-9999',
+            document: '000.000.000-00'
+          },
+          products: [{
+            id: 'doacao',
+            name: 'Doação Lar Leão de Judá',
+            quantity: 1,
+            price: amount
+          }]
+        })
+      });
+
+      const data = await resp.json();
+
+      if (!resp.ok) throw new Error(data.message || 'Erro na API');
+
+      // Preenche tela PIX — ajuste os campos conforme retorno real da Amplo Pay
+      const qrCode  = data.qrCode  || data.qr_code  || data.pixCode  || '';
+      const qrImage = data.qrCodeImage || data.qr_code_image || '';
+
+      document.getElementById('pixValorLabel').textContent = 'Doação de ' + selectedValue;
+      document.getElementById('pixCodeBox').textContent = qrCode;
+
+      const img = document.getElementById('pixQrImg');
+      if (qrImage) {
+        img.src = qrImage.startsWith('data:') ? qrImage : 'data:image/png;base64,' + qrImage;
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+
+      document.getElementById('pixCopyOk').textContent = '';
+      mostrarTela('telaPix');
+
+    } catch (err) {
+      console.error(err);
+      document.getElementById('erroMsg').textContent = err.message || 'Não foi possível gerar o Pix. Tente novamente.';
+      mostrarTela('telaErro');
+    }
+  }
+
+  function copiarPix() {
+    const code = document.getElementById('pixCodeBox').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const ok = document.getElementById('pixCopyOk');
+      ok.textContent = '✅ Código copiado!';
+      setTimeout(() => ok.textContent = '', 3000);
+    });
+  }
+
+  // Animate progress bar on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('progressBar').style.width = '40%';
+    }, 300);
+  });
+
+  // Progress bar animate
+  setTimeout(() => {
+    const bar = document.querySelector('.prog2-bar-fill');
+    if (bar) bar.style.width = '41%';
+  }, 300);
+
+  // Countdown — alvo: 3 dias a partir do carregamento
+  const target = new Date();
+  target.setDate(target.getDate() + 3);
+  target.setHours(target.getHours() + 8);
+  target.setMinutes(target.getMinutes() + 2);
+  target.setSeconds(target.getSeconds() + 42);
+
+  function updateCountdown() {
+    const diff = target - new Date();
+    if (diff <= 0) {
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq2-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq2-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Carousel
+  let currentSlide = 0;
+  const totalSlides = 3;
+
+  function goToSlide(index) {
+    currentSlide = index;
+    document.getElementById('carouselTrack').style.transform = `translateX(-${index * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  setInterval(() => goToSlide((currentSlide + 1) % totalSlides), 3500);
+
+  // Escape key closes modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
